@@ -1,0 +1,21 @@
+set name = `whoami`
+echo "Welcome! Your Name is"
+echo "$name"
+#alias cd "cd \!*;ls"
+# alias ohere exo-open --launch FileManager
+
+alias g 'gvim'
+alias .. 'cd ..'
+alias ll 'ls -a'
+
+#set prompt =  "%{\033]0;`whoami`@`hostname`:${cwd}\007%}`whoami` @ `hostname`: $cwd #"
+set prompt =  "%{\033]0;`whoami`@localhost:${cwd}\007%}[`whoami`@localhost:$cwd] #"
+alias cd 'cd \!*;set prompt = "%{\033]0;`whoami`@localhost:${cwd}\007%}[`whoami`@localhost:$cwd] #";ls'
+
+alias gitp git -u push origin master
+alias gitcom git commit -m "say something"
+alias gita git add .
+
+
+
+
