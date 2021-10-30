@@ -7,13 +7,23 @@ echo "$name"
 alias g 'gvim'
 alias .. 'cd ..'
 alias ll 'ls -a'
+alias sc 'source ~/.cshrc'
+alias gsc 'gvim ~/.cshrc.user'
+alias gvc 'gvim ~/.vimrc'
+
+alias cdd 'cd ~/Desktop/'
+alias h history
 
 #set prompt =  "%{\033]0;`whoami`@`hostname`:${cwd}\007%}`whoami` @ `hostname`: $cwd #"
-set prompt =  "%{\033]0;`whoami`@localhost:${cwd}\007%}[`whoami`@localhost:$cwd] #"
-alias cd 'cd \!*;set prompt = "%{\033]0;`whoami`@localhost:${cwd}\007%}[`whoami`@localhost:$cwd] #";ls'
+#set prompt =  "%{\033]0;`whoami`@localhost:${cwd}\007%}[`whoami`@localhost:$cwd] #"
+#alias cd 'cd \!*;set prompt = "%{\033]0;`whoami`@localhost:${cwd}\007%}[`whoami`@localhost:$cwd] #";ls'
 
-alias gitp git -u push origin master
-alias gitcom git commit -m "say something"
+set prompt =  "%{\033]0;`whoami`@${cwd}\007%}[`whoami`@$cwd]#"
+alias cd 'cd \!*;set prompt = "%{\033]0;`whoami`@${cwd}\007%}[`whoami`@$cwd]#";ls'
+
+#alias gitp git -u push origin master
+alias gitp git push origin master
+alias gitcom git commit -m
 alias gita git add .
 
 
