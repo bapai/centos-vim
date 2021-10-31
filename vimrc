@@ -201,6 +201,7 @@ let g:airline#extensions#tabline#fnametruncate = 16
 let g:airline#extensions#tabline#fnamecollapse = 2
 let g:airline#extensions#tabline#buffer_idx_mode = 0
 
+nnoremap <leader>0 :bf<cr>
 nnoremap <leader>1 :buffer 1<cr>
 nnoremap <leader>2 :buffer 2<cr>
 nnoremap <leader>3 :buffer 3<cr>
@@ -397,3 +398,24 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 "END of -- self-define
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"{{{Super function mapping with Key 's': 
+"stop
+noremap s <C-c>
+"switch to super function: map ssx to a fucntion when necessary
+noremap ss <ESC>
+
+"super buffer delet
+noremap sbd :bd<CR>
+"super close windows
+noremap scw <C-w>c
+"super close buffer
+noremap scb :bd<CR>
+"switch windows
+noremap sw <C-w><C-w>
+"switch to this-line's end
+noremap sl $
+"}}}
+
+set foldenable
+:set foldmethod=marker

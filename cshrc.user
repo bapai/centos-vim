@@ -13,6 +13,7 @@ alias gvc 'gvim ~/.vimrc'
 
 alias cdd 'cd ~/Desktop/'
 alias h history
+alias f. 'find . -name'
 
 #set prompt =  "%{\033]0;`whoami`@`hostname`:${cwd}\007%}`whoami` @ `hostname`: $cwd #"
 #set prompt =  "%{\033]0;`whoami`@localhost:${cwd}\007%}[`whoami`@localhost:$cwd] #"
