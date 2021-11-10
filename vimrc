@@ -58,7 +58,8 @@ set fileencodings=ucs-bom,utf-8,cp936
 set fileencoding=utf-8
 "}}}
 "GUI setting{{{
-colorscheme darkblue
+"colorscheme darkblue
+colorscheme onehalfdark 
 "colorscheme desert
 "colorscheme evening
 "设置Gvim字体
@@ -88,6 +89,14 @@ inoremap <M-l> <Right>
 imap <M-i> <ESC>
 vmap <M-i> <ESC>
 
+" IDE like delete
+inoremap <C-BS> <ESC>bdei
+" change local line to Upper
+inoremap <C-u> <ESC>mzgUiw`za
+
+"copy local file-path to clipboard
+"nmap <leader>fn :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
+"nmap <leader>fp :let @*=substitute(expand("%:p"), "/", "\\", "g")<CR>
 
 " Windows like custom setting{{{
 "imap <C-v> <ESC>"+gpa
@@ -362,9 +371,9 @@ set matchtime=1
 " 光标移动到buffer的顶部和底部时保持3行距离
 set scrolloff=3
 " 为C程序提供自动缩进
-set smartindent
+"set smartindent
 " 高亮显示普通txt文件（需要txt.vim脚本）
-au BufRead,BufNewFile *  setfiletype txt
+"au BufRead,BufNewFile *.txt  setfiletype txt
 """"""""""""""""============================================
 " CTags的设定  
 let Tlist_Sort_Type = "name"    " 按照名称排序  
@@ -419,3 +428,18 @@ noremap sl $
 
 set foldenable
 :set foldmethod=marker
+" use 'space' key to open/close flod at this line.
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+
+nmap <leader>s :source ~/.vimrc<cr>
+nmap <leader>e :e ~/.vimrc<cr>
+nmap <leader>th :tabnew<cr>
+nmap <leader>tc :tabclose<cr>
+nmap <leader>th :tabp<cr>
+nmap <leader>tl :tabn<cr>
+
+augroup filetypedetect
+	au! BufRead,BufNewFile *.v,*.vh,*.sv,*.svh setfiletype uvm_sverilog
+augroup END
+
+
