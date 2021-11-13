@@ -93,7 +93,19 @@ syn keyword verilogStatement   std
 syn keyword verilogStatement   stcontinue
 
 syn keyword verilogRepeat      return break continue
-syn keyword verilogRepeat      do while foreach
+syn keyword verilogRepeat      do while foreach forever repeat for
+syn keyword verilogConditional iff
+syn keyword verilogConditional if else case casex casez default endcase
+
+syn keyword verilogTypeDef     typedef enum
+
+syn match   verilogGlobal      "`begin_\w\+"
+syn match   verilogGlobal      "`end_\w\+"
+syn match   verilogGlobal      "`remove_\w\+"
+syn match   verilogGlobal      "`restore_\w\+"
+
+syn match   verilogNumber      "\<[0-9][0-9_\.]\=\([fpnum]\|\)s\>"
+syn match   verilogNumber      "\<[0-9][0-9_\.]\=step\>"
 
 syn match   verilogGlobal      "`[a-zA-Z_][a-zA-Z0-9_$]\+"
 syn match   verilogGlobal      "$[a-zA-Z0-9_$]\+"
@@ -135,11 +147,11 @@ else
 endif
 
 syn keyword verilogObject      super null this
-syn match   verilogObject      "\<\w\+\ze\(::\|\.\)" contains=verilogNumber
+syn match   verilogObject      "\<\w\+\ze\s*\(::\|\.\)" contains=verilogNumber
 
 " Copy from uvm_sv.vim : Link is: 
 " https://github.com/funningboy/vim/blob/master/syntax/verilog_systemverilog.vim
-"{{{
+".xxx match keyword {{{
 syn keyword verilogLabel       join_any join_none forkjoin
 
 syn match   verilogMethod      "\.atobin\>"
@@ -957,7 +969,8 @@ if version >= 508 || !exists("did_verilog_syn_inits")
    HiLink verilogTodo            Todo
    HiLink verilogComment         Comment
    HiLink verilogConstant        Constant
-   HiLink verilogLabel           Tag
+   "HiLink verilogLabel           Tag
+   HiLink verilogLabel           Function
    HiLink verilogNumber          Number
    HiLink verilogOperator        Special
    HiLink verilogPrototype       Statement
@@ -986,6 +999,7 @@ endif
 
 let b:current_syntax = "verilog_systemverilog"
 
+"syn region  verilogString      start=+"+ skip=+\\"+ end=+"+ contains=verilogEscape,@Spel
 " Restore cpoptions
 let &cpoptions=oldcpo
 

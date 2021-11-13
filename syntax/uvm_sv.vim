@@ -100,10 +100,13 @@ syn keyword verilogStatement   new
 syn keyword verilogTypeDef     typedef enum
 
 syn keyword verilogConditional iff
+syn keyword verilogConditional if else case casex casez default endcase
+
 
 syn keyword verilogRepeat      return break continue
-syn keyword verilogRepeat      do while foreach
+syn keyword verilogRepeat      do while foreach forever repeat for
 
+syn keyword verilogLabel       begin end fork join
 syn keyword verilogLabel       join_any join_none forkjoin
 
 syn match   verilogGlobal      "`begin_\w\+"
